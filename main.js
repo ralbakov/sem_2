@@ -47,12 +47,15 @@
         });
 
         textArea.addEventListener('keyup', function(){
-            changeButtonsStatus(textArea.value.length > 0);
+            if (textArea.value.length > 0) {
+                countButton.removeAttribute('disabled');
+            } else {
+                countButton.setAttribute('disabled', 'disabled');
+            }
         });
 
         resetButton.addEventListener('click', function(){
             textArea.value = '';
-            changeButtonsStatus(false);
         });
     });
 }());
